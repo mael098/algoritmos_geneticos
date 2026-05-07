@@ -14,7 +14,7 @@ public class Main {
 
         for (int i = 0; i < tamañoPoblacion; i++) {
             Individuo ind = poblacion.get(i);
-            System.out.println("Individuo " + i + ": Genes = " + java.util.Arrays.toString(ind.genes));
+            System.out.println("Individuo " + i + ": Genes = " + java.util.Arrays.toString(ind.genes)+", Fitness = " + ind.fitness);
         }
 
 

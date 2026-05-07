@@ -9,6 +9,10 @@ public class Individuo {
         for (int i = 0; i < dimensions; i++) {
             genes[i] = min + (Math.random() * (max - min));
         }
+
+        for (int i = 0; i < dimensions; i++) {
+            fitness += genes[i] * genes[i];
+        }
     }
 
 }
