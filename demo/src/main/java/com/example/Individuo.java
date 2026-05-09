@@ -1,18 +1,28 @@
 package com.example;
 
+import java.util.List;
+
 public class Individuo {
-    double[] genes;
-    double fitness;
+    int[] genes;
+    int[] fitness;
 
     public  Individuo(int dimensions, double  min, double  max) {
-        genes = new double[dimensions];
+        genes = new int[dimensions];
         for (int i = 0; i < dimensions; i++) {
-            genes[i] = min + (Math.random() * (max - min));
+            genes[i] = (Math.random() > 0.5) ? 1:0;
         }
 
-        for (int i = 0; i < dimensions; i++) {
-            fitness += genes[i] * genes[i];
+    }
+
+    public void evaluar(List<Individuo> poblacion) {
+        // Ejemplo de función de fitness: contar el número de genes en 1
+        int count = 0;
+        for (int gene : genes) {
+            if (gene == 1) {
+                count++;
+            }
         }
+        fitness = new int[]{count};
     }
 
 }
