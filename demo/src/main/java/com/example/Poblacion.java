@@ -25,4 +25,21 @@ public class Poblacion {
 
     }
 
+    public void evaluarPoblacion(){
+        for (Individuo ind : individuos) {
+            ind.evaluar();
+        }
+    }
+
+    public Individuo getMejor() {
+        Individuo mejor = individuos.get(0);
+        for (Individuo ind: individuos){
+            if (ind.fitness[0] > mejor.fitness[0]){
+                mejor = ind;
+            }
+        }
+        return mejor;
+    }
+
 }
+

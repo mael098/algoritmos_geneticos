@@ -1,7 +1,5 @@
 package com.example;
 
-import java.util.List;
-
 public class Individuo {
     int[] genes;
     int[] fitness;
@@ -11,18 +9,22 @@ public class Individuo {
         for (int i = 0; i < dimensions; i++) {
             genes[i] = (Math.random() > 0.5) ? 1:0;
         }
+        this.fitness = new int[1];
 
     }
 
-    public void evaluar(List<Individuo> poblacion) {
+    public void evaluar() {
         // Ejemplo de función de fitness: contar el número de genes en 1
         int count = 0;
         for (int gene : genes) {
-            if (gene == 1) {
-                count++;
-            }
+            if (gene == 1) count++;
         }
-        fitness = new int[]{count};
+        this.fitness[0] = count;
+    }
+
+    @Override
+    public String toString(){
+      return "Genes: " + java.util.Arrays.toString(genes) + " Fitness: " + fitness[0];
     }
 
 }
