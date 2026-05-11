@@ -16,9 +16,12 @@ public class Individuo {
     public void evaluar() {
         // Ejemplo de función de fitness: contar el número de genes en 1
         int count = 0;
+        // Contar el número de genes en 1
         for (int gene : genes) {
+            // Si el gen es 1, incrementamos el contador
             if (gene == 1) count++;
         }
+        // Asignar el valor de fitness al primer elemento del array
         this.fitness[0] = count;
     }
 

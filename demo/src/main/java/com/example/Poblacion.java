@@ -10,14 +10,18 @@ public class Poblacion {
     public Poblacion(int tamaño, int dimensiones) {
         this.tamañoPoblacion = tamaño;
         this.individuos = new ArrayList<>();
+        // Crear individuos con diferentes rangos de genes
 
         for (int i = 0; i < tamañoPoblacion; i++) {
+            // Alternar entre diferentes rangos de genes para crear diversidad
             if (i % 3 ==0) {
                 individuos.add(new Individuo(dimensiones, -100,-40));
             }
+            // Alternar entre diferentes rangos de genes para crear diversidad
             else if (i % 4 == 1){
                 individuos.add(new Individuo(dimensiones, 40,100));
             }
+            // Alternar entre diferentes rangos de genes para crear diversidad
             else {
                 individuos.add(new Individuo(dimensiones, -100, 100));
             }
