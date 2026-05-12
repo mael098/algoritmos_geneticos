@@ -9,7 +9,6 @@ public class Individuo {
         for (int i = 0; i < dimensions; i++) {
             genes[i] = (Math.random() > 0.5) ? 1:0;
         }
-        this.fitness = new int[1];
 
     }
 
@@ -22,6 +21,8 @@ public class Individuo {
             if (gene == 1) count++;
         }
         // Asignar el valor de fitness al primer elemento del array
+        this.fitness = new int[1];
+        // El fitness es igual al número de genes en 1
         this.fitness[0] = count;
     }
 

@@ -1,2 +1,4 @@
 # Algoritmo heuristico 
-integrando metodo por resto 
+integrando metodo por resto
+
+

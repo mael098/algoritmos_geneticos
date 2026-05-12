@@ -2,7 +2,7 @@ package com.example;
 
 public class Main {
     public static void main(String[] args) {
-        int tamañoPoblacion = 40;
+        int tamañoPoblacion = 100;
         int dimensiones = 10;
 
         Poblacion poblacion = new Poblacion(tamañoPoblacion, dimensiones);
