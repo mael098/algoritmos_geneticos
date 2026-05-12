@@ -17,9 +17,10 @@ public class Main {
         System.out.println(mejor);
 
         System.out.println("Cruzamiento entre el mejor individuo y otro individuo aleatorio:");
-        Individuo otro = poblacion.individuos.get((int)(Math.random() * tamañoPoblacion));
-        System.out.println("Otro individuo:");
-        System.out.println(otro);
-
+        Individuo otro = poblacion.individuos.get((int) (Math.random() * tamañoPoblacion));
+        Cruzamiento cruzamiento = new Cruzamiento(mejor, otro);
+        Individuo[] hijos = cruzamiento.cruzar();
+        System.out.println("Hijo 1: " + hijos[0]);
+        System.out.println("Hijo 2: " + hijos[1]);
     }
 }

@@ -1,27 +1,48 @@
 package com.example;
 
 public class Cruzamiento {
-    Individuo apto2;Individuo apto1;
+    Individuo apto2;
+    Individuo apto1;
+    // crusamineto multipunto
 
     public Cruzamiento(Individuo apto1, Individuo apto2) {
         this.apto1 = apto1;
         this.apto2 = apto2;
     }
 
-    public Individuo cruzar() {
+    public Individuo[] cruzar() {
+        Individuo[] hijos = new Individuo[2];
+        int puntoCorte1 = (int) (Math.random() * apto1.genes.length);
+        int puntoCorte2 = (int) (Math.random() * apto1.genes.length);
 
-        int dimensiones  = apto1.genes.length;
-        Individuo hijo = new Individuo(dimensiones, 0, 1);
-        for (int i = 0; i < dimensiones; i++) {
-            // Elegir aleatoriamente el gen del padre 1 o del padre 2
-            if (Math.random() > 0.5) {
-                hijo.genes[i] = apto1.genes[i];
-            } else {
-                hijo.genes[i] = apto2.genes[i];
-            }
-
+        if (puntoCorte1 > puntoCorte2) {
+            int temp = puntoCorte1;
+            puntoCorte1 = puntoCorte2;
+            puntoCorte2 = temp;
         }
-        return hijo;
+
+        int[] hijo1Genes = new int[apto1.genes.length];
+        int[] hijo2Genes = new int[apto1.genes.length];
+
+        for (int i = 0; i < apto1.genes.length; i++) {
+            if (i < puntoCorte1 || i > puntoCorte2) {
+                hijo1Genes[i] = apto1.genes[i];
+                hijo2Genes[i] = apto2.genes[i];
+            } else {
+                hijo1Genes[i] = apto2.genes[i];
+                hijo2Genes[i] = apto1.genes[i];
+            }
+        }
+
+        hijos[0] = new Individuo(hijo1Genes.length, 0.0, 0.0);
+        hijos[0].genes = hijo1Genes;
+        hijos[0].evaluar();
+
+        hijos[1] = new Individuo(hijo2Genes.length, 0.0, 0.0);
+        hijos[1].genes = hijo2Genes;
+        hijos[1].evaluar();
+
+        return hijos;
     }
 
 }
