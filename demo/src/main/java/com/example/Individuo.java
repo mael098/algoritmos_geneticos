@@ -4,7 +4,7 @@ public class Individuo {
     int[] genes;
     int[] fitness;
 
-    public  Individuo(int dimensions, double  min, double  max) {
+    public  Individuo(int dimensions) {
         genes = new int[dimensions];
         for (int i = 0; i < dimensions; i++) {
             genes[i] = (Math.random() > 0.5) ? 1:0;
