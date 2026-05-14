@@ -4,7 +4,11 @@ public class Individuo {
     int[] genes;
     int[] fitness;
 
+<<<<<<< HEAD
     public   Individuo(int dimensions) {
+=======
+    public  Individuo(int dimensions, double  min, double  max) {
+>>>>>>> parent of 74edc25 (Refactor Individuo constructor to remove min and max parameters; update Poblacion class to create Individuo instances without them. Enhance Cruzamiento class with comments and ensure proper child creation logic.)
         genes = new int[dimensions];
         for (int i = 0; i < dimensions; i++) {
             genes[i] = (Math.random() > 0.5) ? 1:0;
