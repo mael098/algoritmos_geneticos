@@ -34,11 +34,11 @@ public class Cruzamiento {
             }
         }
 
-        hijos[0] = new Individuo(hijo1Genes.length, 0.0, 0.0);
+        hijos[0] = new Individuo(hijo1Genes.length);
         hijos[0].genes = hijo1Genes;
         hijos[0].evaluar();
 
-        hijos[1] = new Individuo(hijo2Genes.length, 0.0, 0.0);
+        hijos[1] = new Individuo(hijo2Genes.length);
         hijos[1].genes = hijo2Genes;
         hijos[1].evaluar();
 
