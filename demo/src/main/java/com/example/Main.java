@@ -21,6 +21,10 @@ public class Main {
         System.out.println("\nEjecutando Selección por Resto Esperado para filtrar a los mejores...");
         List<Individuo> seleccionados = Seleccion.seleccionPorResto(poblacion);
 
+        if (seleccionados.size() < 2) {
+            throw new IllegalStateException("No se pudieron seleccionar al menos 2 padres para cruzamiento.");
+        }
+
         // 4. SELECCIONAR EXACTAMENTE 2 PADRES
         // Tomamos los dos primeros elementos de la lista filtrada por el método de resto
         Individuo padre1 = seleccionados.get(0);
