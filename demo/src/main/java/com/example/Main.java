@@ -17,6 +17,10 @@ public class Main {
             System.out.println("Individuo " + i + ": " + poblacion.individuos.get(i));
         }
 
+        System.out.println("\n=== RESUMEN ===");
+        System.out.println("Individuos: " + tamañoPoblacion);
+        System.out.println("Evaluaciones: " + poblacion.getEvaluacionesRealizadas());
+
         // 3. SELECCIÓN POR RESTO (Genera las listas entera y decimal internamente)
         System.out.println("\nEjecutando Selección por Resto Esperado para filtrar a los mejores...");
         List<Individuo> seleccionados = Seleccion.seleccionPorResto(poblacion);

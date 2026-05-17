@@ -6,6 +6,7 @@ import java.util.List;
 public class Poblacion {
     List<Individuo> individuos;
     int tamañoPoblacion;
+    int evaluacionesRealizadas;
 
     public Poblacion(int tamaño, int dimensiones) {
         this.tamañoPoblacion = tamaño;
@@ -19,9 +20,15 @@ public class Poblacion {
     }
 
     public void evaluarPoblacion(){
+        evaluacionesRealizadas = 0;
         for (Individuo ind : individuos) {
             ind.evaluar();
+            evaluacionesRealizadas++;
         }
+    }
+
+    public int getEvaluacionesRealizadas() {
+        return evaluacionesRealizadas;
     }
 
     public Individuo getMejor() {
