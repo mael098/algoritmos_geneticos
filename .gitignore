@@ -1,0 +1,5 @@
+*.class
+
+# Maven build outputs
+/demo/target/
+**/target/

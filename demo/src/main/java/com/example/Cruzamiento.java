@@ -12,8 +12,27 @@ public class Cruzamiento {
 
     public Individuo[] cruzar() {
         Individuo[] hijos = new Individuo[2];
-        int puntoCorte1 = (int) (Math.random() * apto1.genes.length);
-        int puntoCorte2 = (int) (Math.random() * apto1.genes.length);
+        int longitudGenes = apto1.genes.length;
+
+        // Con menos de 2 genes no es posible cruzamiento de dos puntos.
+        if (longitudGenes < 2) {
+            hijos[0] = new Individuo(longitudGenes);
+            hijos[0].genes = apto1.genes.clone();
+            hijos[0].evaluar();
+
+            hijos[1] = new Individuo(longitudGenes);
+            hijos[1].genes = apto2.genes.clone();
+            hijos[1].evaluar();
+            return hijos;
+        }
+
+        // Seleccionar dos puntos de corte aleatorios
+        int puntoCorte1 = (int) (Math.random() * longitudGenes);
+        int puntoCorte2 = (int) (Math.random() * longitudGenes);
+
+        while (puntoCorte1 == puntoCorte2) {
+            puntoCorte2 = (int) (Math.random() * longitudGenes);
+        }
 
         if (puntoCorte1 > puntoCorte2) {
             int temp = puntoCorte1;
@@ -21,10 +40,10 @@ public class Cruzamiento {
             puntoCorte2 = temp;
         }
 
-        int[] hijo1Genes = new int[apto1.genes.length];
-        int[] hijo2Genes = new int[apto1.genes.length];
+        int[] hijo1Genes = new int[longitudGenes];
+        int[] hijo2Genes = new int[longitudGenes];
 
-        for (int i = 0; i < apto1.genes.length; i++) {
+        for (int i = 0; i < longitudGenes; i++) {
             if (i < puntoCorte1 || i > puntoCorte2) {
                 hijo1Genes[i] = apto1.genes[i];
                 hijo2Genes[i] = apto2.genes[i];
