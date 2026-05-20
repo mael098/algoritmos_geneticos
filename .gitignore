@@ -1,3 +1,2 @@
 *.class
-/demo/target/classes/com/example/*.class
 # Maven build outputs
