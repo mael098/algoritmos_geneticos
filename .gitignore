@@ -1,5 +1,4 @@
 *.class
 
 # Maven build outputs
-/demo/target/
-**/target/
+/demo/target/classes/com/example/*.class
